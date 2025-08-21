@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us — My Simple Site</title>
+  <style>
+    :root { --bg:#0f172a; --card:#111827; --text:#e5e7eb; --muted:#94a3b8; --brand:#22c55e; }
+    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;background:linear-gradient(145deg,#0b1224,#0f172a);color:var(--text)}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:800px;margin:0 auto;padding:20px}
+    header{position:sticky;top:0;background:rgba(15,23,42,.8);backdrop-filter:blur(8px);border-bottom:1px solid #1f2937}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{font-weight:800}
+    .btn{display:inline-block;padding:10px 16px;border-radius:12px;border:1px solid #1f2937;background:#0b1224}
+    main{padding:40px 0}
+    .card{background:var(--card);border:1px solid #1f2937;border-radius:16px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    label{display:block;margin:10px 0 6px;color:#cbd5e1}
+    input, textarea{width:100%;padding:12px;border-radius:12px;border:1px solid #1f2937;background:#0b1224;color:var(--text)}
+    input:focus, textarea:focus{outline:2px solid var(--brand);border-color:transparent}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .actions{display:flex;gap:10px;align-items:center;margin-top:12px}
+    .cta{background:var(--brand);color:#052e16;border:0;padding:12px 16px;border-radius:12px;font-weight:700;cursor:pointer}
+    .muted{color:var(--muted)}
+    @media (max-width:700px){ .row{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="brand" href="./">My Simple Site</a>
+        <div>
+          <a class="btn" href="./">Home</a>
+          <a class="btn" href="./contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 style="margin:0 0 14px">Contact us</h1>
+    <p class="muted" style="margin:0 0 20px">Have a question or a project in mind? Send us a message.</p>
+
+    <form id="contactForm" class="card" action="#" method="post" novalidate>
+      <div class="row">
+        <div>
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" placeholder="John Doe" required />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+        </div>
+      </div>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="6" placeholder="Write your message..." required></textarea>
+
+      <div class="actions">
+        <button class="cta" type="submit">Send message</button>
+        <span class="muted" id="status" role="status" aria-live="polite"></span>
+      </div>
+    </form>
+
+    <section style="margin-top:18px" class="card">
+      <h3 style="margin:0 0 8px">Other ways to reach us</h3>
+      <p class="muted" style="margin:0">Email: hello@example.com · Phone: +92 300 0000000</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="border-top:1px solid #1f2937; padding:18px 0; color:#94a3b8">
+      <span>© <span id="year"></span> My Simple Site</span>
+    </div>
+  </footer>
+
+  <script>
+    // Simple client-side handler (no backend needed for demo)
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('status');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Basic validation
+      if (!form.checkValidity()) {
+        status.textContent = 'Please fill in all required fields.';
+        return;
+      }
+      status.textContent = 'Thanks! Your message has been recorded.';
+      form.reset();
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Simple Site</title>
+  <style>
+    :root { --bg:#0f172a; --card:#111827; --text:#e5e7eb; --muted:#94a3b8; --brand:#22c55e; }
+    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif;background:linear-gradient(145deg,#0b1224,#0f172a);color:var(--text)}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1000px;margin:0 auto;padding:20px}
+    header{position:sticky;top:0;background:rgba(15,23,42,.8);backdrop-filter:blur(8px);border-bottom:1px solid #1f2937}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{font-weight:800;letter-spacing:.4px}
+    .navlinks{display:flex;gap:16px}
+    .btn{display:inline-block;padding:10px 16px;border-radius:12px;border:1px solid #1f2937;background:#0b1224}
+    .btn.cta{background:var(--brand);color:#052e16;border-color:transparent;font-weight:700}
+    .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;padding:60px 0}
+    .card{background:var(--card);border:1px solid #1f2937;border-radius:16px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .kicker{color:var(--brand);font-weight:700;letter-spacing:.2px}
+    h1{font-size:clamp(28px,4vw,44px);margin:6px 0 10px}
+    p{color:var(--muted);line-height:1.6}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+    .feature h3{margin:6px 0 6px}
+    footer{border-top:1px solid #1f2937;color:#94a3b8}
+    .footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:24px 0}
+    @media (max-width:900px){ .hero{grid-template-columns:1fr} .features{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="brand" href="./">My Simple Site</a>
+        <div class="navlinks">
+          <a class="btn" href="./">Home</a>
+          <a class="btn" href="./contact.html">Contact</a>
+          <a class="btn cta" href="./contact.html">Get in touch</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="card">
+        <div class="kicker">Welcome</div>
+        <h1>Clean & simple starter homepage</h1>
+        <p>
+          This minimal template gives you a modern hero, feature cards, and a sticky nav.
+          Use it as a quick starting point for any small project.
+        </p>
+        <p style="margin-top:14px">
+          <a class="btn cta" href="./contact.html">Contact us</a>
+          <a class="btn" href="#features" style="margin-left:8px">Learn more</a>
+        </p>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">What you get</h3>
+        <ul style="margin:8px 0 0 18px; color:var(--muted); line-height:1.7">
+          <li>Responsive layout (mobile‑friendly)</li>
+          <li>Sticky top navigation</li>
+          <li>Simple, readable styling</li>
+          <li>Two ready-to-use pages</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="features">
+        <div class="card feature">
+          <h3>Fast</h3>
+          <p>No frameworks required—just plain HTML & CSS for instant load times.</p>
+        </div>
+        <div class="card feature">
+          <h3>Simple</h3>
+          <p>Clear sections and components you can copy and adapt easily.</p>
+        </div>
+        <div class="card feature">
+          <h3>Customizable</h3>
+          <p>Change the colors in the <code>:root</code> variables to match your brand.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> My Simple Site</span>
+      <span><a href="./contact.html">Contact</a></span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
